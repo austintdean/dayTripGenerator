@@ -15,20 +15,16 @@
 import random 
 
 locations = ['Chicago', 'San Diego', 'London', 'Quebec', 'Barcelona']
-restaurants = ['Gibsons Bar & Steakhouse', '2','3','4','5']
-transports = ['1','2','3','4','5']
-entertainment = ['1','2','3','4','5']
-
+restaurants = ['Gibsons Bar & Steakhouse', 'Eddle Vs Prime Seafood','Bob Bob Ricard Soho','Cichon Dingue Champlain','RAO restaurant']
+transports = ['car','train','boat','helicopter','taxi']
+entertainment = ['watch a play','hike a mountain','see Big Ben','running with the bulls','dancing at the ball']
 
 
 def location_select(location_list):
     select_location = random.choice(location_list)
     return select_location 
-
-        
-    
-
 final_location = location_select(locations)
+
 
 
 def restaurant_select (restaurant_list):
@@ -48,14 +44,82 @@ def entertainment_select (entertainment_list):
     select_entertainment = random.choice(entertainment_list)
     return select_entertainment
 
-final_entertainment = entertainment_select(entertainment) 
+final_entertainment = entertainment_select(entertainment)  
 
 
 
+def message_one(name):
+    final_location = location_select(locations)
+    print(f'Welcome {name}! Visit {final_location}? ')
+    user_input = input('y/n')
+    if user_input == 'y':
+        print('Great!')
+        message_two(name)
+        
+    
+    else:
+        print(f'that is too bad! Lets try again.')            
+        message_one(name)
 
 
     
+def message_two(name):
+    print(f'Thanks, {name}! You have chosen {final_location}. Eat at {final_restaurant}? ')
+    final_restaurant = restaurant_select(restaurants) 
+    user_input = input('y/n')
+    if user_input == 'y':
+        print('Great!')
+        message_three(name)
+        return 
+    
+    else:
+        print(f'that is too bad! Lets try again.')            
+        message_two(name)
+
+def message_three(name):
+
+    print(f'Thanks, {name}! You have chosen {final_location} and eat at {final_restaurant}? Travel using {final_transport}?')
+    final_transport = transports_select(transports)
+    user_input = input('y/n')
+    if user_input == 'y':
+        print('Great!')
+        message_four(name)
+        return 
+    
+    else:
+        print(f'that is too bad! Lets try again.')            
+        message_three(name)
+
+        
+        
+        
+        
+def message_four(name):
+    print(f'Thanks, {name}! You have chosen {final_location}, Eat at {final_restaurant} and travel using {final_transport}; would you like to do {final_entertainment}? ')
+    final_entertainment = entertainment_select(entertainment)  
+    user_input = input('y/n')
+    if user_input == 'y':
+        print('Great!')
+        message_final(name)
+        return 
+    
+    else:
+        print(f'that is too bad! Lets try again.')            
+        message_four(name)
+
+
+def message_final(name):
+    print(f'Thanks, {name}! You have chosen {final_location}, will eat at {final_restaurant}, travel using {final_transport}, and would like to do {final_entertainment}? Does this trip work for you?')
+    user_input = input('y/n')
+    if user_input == 'y':
+        print('Great! We hope that you enjoy your trip!')
+      
+    
+    else:
+        print(f'that is too bad! Lets try again from the beginning.')            
+        message_one(name)
 
 
 
+message_one('Mark')
    
