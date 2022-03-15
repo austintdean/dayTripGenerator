@@ -17,7 +17,7 @@ import random
 locations = ['Chicago', 'San Diego', 'London', 'Quebec', 'Barcelona']
 restaurants = ['Gibsons Bar & Steakhouse', 'Eddle Vs Prime Seafood','Bob Bob Ricard Soho','Cichon Dingue Champlain','RAO restaurant']
 transports = ['car','train','boat','helicopter','taxi']
-entertainment = ['watch a play','hike a mountain','see Big Ben','running with the bulls','dancing at the ball']
+entertainment = ['watch a play','hike a mountain','see Big Ben','run with the bulls','dance at the ball']
 
 
 def location_select(location_list):
@@ -50,21 +50,21 @@ final_entertainment = entertainment_select(entertainment)
 
 def message_one(name):
     final_location = location_select(locations)
-    print(f'Welcome {name}! Visit {final_location}? ')
+    print(f'Welcome {name} to Day Trip Generator! Would you like to travel to {final_location}? ')
     user_input = input('y/n')
     if user_input == 'y':
-        print('Great!')
+        print('Sounds like a plan! Lets get that down for you!')
         message_two(name)
         
     
     else:
-        print(f'that is too bad! Lets try again.')            
+        print(f'That is too bad! Lets try again.')            
         message_one(name)
 
 
     
 def message_two(name):
-    print(f'Thanks, {name}! You have chosen {final_location}. Eat at {final_restaurant}? ')
+    print(f'Wonderful, {name}! You have chosen to travel to {final_location}. Would you like to eat at {final_restaurant}? ')
     final_restaurant = restaurant_select(restaurants) 
     user_input = input('y/n')
     if user_input == 'y':
@@ -73,12 +73,12 @@ def message_two(name):
         return 
     
     else:
-        print(f'that is too bad! Lets try again.')            
+        print(f'That is too bad! Lets try again.')            
         message_two(name)
 
 def message_three(name):
 
-    print(f'Thanks, {name}! You have chosen {final_location} and eat at {final_restaurant}? Travel using {final_transport}?')
+    print(f'Thanks, {name}! You have chosen ti travel to {final_location} and eat at {final_restaurant}? Would you like to transport yourself using {final_transport}?')
     final_transport = transports_select(transports)
     user_input = input('y/n')
     if user_input == 'y':
@@ -87,7 +87,7 @@ def message_three(name):
         return 
     
     else:
-        print(f'that is too bad! Lets try again.')            
+        print(f'That is too bad! Lets try again.')            
         message_three(name)
 
         
@@ -95,7 +95,7 @@ def message_three(name):
         
         
 def message_four(name):
-    print(f'Thanks, {name}! You have chosen {final_location}, Eat at {final_restaurant} and travel using {final_transport}; would you like to do {final_entertainment}? ')
+    print(f'Thanks, {name}! You have chosen to travel to {final_location}, eat at {final_restaurant} and transport yourself using {final_transport}; would you like to {final_entertainment}? ')
     final_entertainment = entertainment_select(entertainment)  
     user_input = input('y/n')
     if user_input == 'y':
@@ -104,19 +104,19 @@ def message_four(name):
         return 
     
     else:
-        print(f'that is too bad! Lets try again.')            
+        print(f'That is too bad! Lets try again.')            
         message_four(name)
 
 
 def message_final(name):
-    print(f'Thanks, {name}! You have chosen {final_location}, will eat at {final_restaurant}, travel using {final_transport}, and would like to do {final_entertainment}? Does this trip work for you?')
+    print(f'Thanks, {name}! You have chosen {final_location}, will eat at {final_restaurant}, travel using {final_transport}, and would like to {final_entertainment}? Does this trip sound fun for you?')
     user_input = input('y/n')
     if user_input == 'y':
-        print('Great! We hope that you enjoy your trip!')
+        print('Great! We hope that you enjoy your trip! Thanks for using Day Trip Generator!')
       
     
     else:
-        print(f'that is too bad! Lets try again from the beginning.')            
+        print(f'That is too bad! Lets try again from the beginning.')            
         message_one(name)
 
 
